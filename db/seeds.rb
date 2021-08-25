@@ -5,12 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+  users = User.create([{ name: 'Alex', email: 'user1@mail.com' }, { name: 'Pol', email: 'user2@mail.com' }])
   categories = Category.create([{title:'Ruby'},{title:'PHP'},{title:'GO'}])
   test = Test.create([
-   {title:'About Ruby',level:1,category_id: categories[0].id},
-   {title:'About PHP',level:2,category_id: categories[1].id},
-   {title:'About GO',level:3,category_id: categories[2].id}
+   {title:'About Ruby',level:1,category_id: categories[0].id,user_id:1},
+   {title:'About PHP',level:2,category_id: categories[1].id,user_id:1},
+   {title:'About GO',level:3,category_id: categories[2].id,user_id:2}
   ])
   questions = Question.create([
    {body:"What year was the Ruby-language created?",test_id:test[0].id},
@@ -53,7 +53,7 @@
    {body: 'Rat', question_id: questions[8].id}
   ])
 
-  users = User.create([{ name: 'Alex', email: 'user1@mail.com' }, { name: 'Pol', email: 'user2@mail.com' }])
+
   users[0].tests << test[0..1]
   users[1].tests << test
 
