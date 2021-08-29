@@ -6,5 +6,5 @@ class User < ApplicationRecord
     self.tests.where(level: test_level)
   end
 
-  validate :email, presence: true
+  validates :email, presence: true
 end
