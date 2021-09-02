@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
 
-  before_action :find_test, only: %i[index]
-  before_action :find_question, only: %i[show destroy create]
+  before_action :find_test, only: %i[index create]
+  before_action :find_question, only: %i[show destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   #http://127.0.0.1:3000/tests/1/questions
@@ -15,7 +15,12 @@ class QuestionsController < ApplicationController
 
   #  http://127.0.0.1:3000/tests/1/questions/new
   def create
-    Question.create({:body=>params[:question][:body],:test_id=> params[:test_id]})
+    new_question = @test.questions.new(question_params)
+    if new_question.save
+      render plain: "Question was create!"
+    else
+      render plain: "Error,try again or check process!"
+    end
   end
 
   def destroy
@@ -23,11 +28,11 @@ class QuestionsController < ApplicationController
     redirect_to test_questions_path(@question.test_id)
   end
 
-  def get_test_questions
-    @test.find
-  end
-
   private
+
+  def question_params
+    params.require(:question).permit(:body)
+  end
 
   def find_test
     @test = Test.find(params[:test_id])
