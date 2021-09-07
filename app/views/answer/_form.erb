@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+<%= form_with model: @answer,local: true do |form| %>
+  <div>
+    <%= form.label :body %>
+    <%= form.text_field :body %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+</body>
+</html>

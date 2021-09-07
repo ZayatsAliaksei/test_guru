@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+
+<body>
+<h1><b>Tests:</b></h1>
+<p><%= @test.title %> <%= link_to "Delete", test_path(@test), method: :delete, data: {confirm: "Are you sure?"} %></p>
+<% if @test%>
+<h2>Questions:</h2>
+  <p><%= link_to 'Create new question', new_test_question_path(@test) %></p>
+  <% @test.questions.each do |q| %>
+    <b><%= q.body %></b>
+    <%= link_to "Delete", question_path(q.id), method: :delete, data: {confirm: "Are you sure?"} %>
+    <%= link_to 'Edit', edit_question_path(q.id) %>
+    <br>
+  <% end %>
+<% end %>
+<%= link_to 'Main page', root_path %>
+</body>
+</html>

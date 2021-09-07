@@ -1,12 +1,12 @@
 class TestsController < ApplicationController
-  before_action :find_test
+  before_action :find_test,only: %i[show destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
+
   def index
-    @tests = Test.all.map
+    @tests = Test.all
   end
 
   def show
-    render inline:  '<%= @test.title %>'
   end
 
   private

@@ -1,25 +1,35 @@
 class QuestionsController < ApplicationController
 
-  before_action :find_test, only: %i[index create]
-  before_action :find_question, only: %i[show destroy]
+  before_action :find_test, only: %i[index create new]
+  before_action :find_question, only: %i[ show destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   #http://127.0.0.1:3000/tests/1/questions
   def index
-     render inline: "<h1><b>Test:</b> <%= @test.title %></h1><p><%= @test.questions.each do |q| %> <p> <%= q.body %></p><% end %></p>"
   end
   #http://127.0.0.1:3000/questions/1
   def show
-    # render inline: "<h1><b>Question:</b></h1><%= @question.body %>"
+  end
+
+  def new
+    @question = @test.questions.new
   end
 
   #  http://127.0.0.1:3000/tests/1/questions/new
   def create
     new_question = @test.questions.new(question_params)
     if new_question.save
-      render plain: "Question was create!"
+      redirect_to root_path
     else
       render plain: "Error,try again or check process!"
+    end
+  end
+
+   def update
+    if @question.update(question_params)
+      redirect_to @question
+    else
+      render :new
     end
   end
 

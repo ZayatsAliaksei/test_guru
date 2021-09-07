@@ -6,4 +6,8 @@ Rails.application.routes.draw do
     resources :questions, shallow: true
   end
 
+  resources :questions do
+    resources :answer,shallow: true
+  end
+
 end
