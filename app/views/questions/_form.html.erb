@@ -1,5 +1,4 @@
-<!doctype html>
-<html lang="en">
+<h1><%= question_header(@question)%></h1>
 <%= form_with model: [@test, @question], local: true do |form| %>
   <div>
     <%= form.label :body %>
@@ -9,4 +8,3 @@
     <%= form.submit %>
   </div>
 <% end %>
-</html>

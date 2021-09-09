@@ -1,16 +1,10 @@
-<!doctype html>
-<html lang="en">
-<body>
 <h1>Answers:</h1>
 <div>
-  <% if @question%>
-    <% @question.answers.each do |a| %>
-      <b><%= a.body %></b>
-      <br>
-    <% end %>
+  <% @question.answers.each do |a| %>
+    <b><%= a.body %></b>
+    <br>
   <% end %>
 </div>
-<p> <%= link_to 'Create_answer',new_question_answer_path %></p>
-</body>
-</html>
+<p> <%= link_to 'Create_answer', new_question_answer_path %></p>
+
 

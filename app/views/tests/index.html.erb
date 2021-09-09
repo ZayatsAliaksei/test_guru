@@ -1,23 +1,10 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
 <h1>Tests:</h1>
 <div>
-  <% if @tests%>
-    <% @tests.each do |test| %>
-      Name:<b><%= test.title %></b>
-      Level:<b><%= test.level %></b>
-      <%= link_to 'Check', test_path(test.id) %>
-      <br>
-    <% end %>
+  <% @tests.each do |test| %>
+    Name:<b><%= test.title %></b>
+    Level:<b><%= test.level %></b>
+    <%= link_to 'Check', test_path(test.id) %>
+    <br>
   <% end %>
 </div>
-<p> <%= link_to 'Create_test',new_test_path %></p>
-</body>
-</html>
+<p> <%= link_to 'Create_test', new_test_path %></p>

@@ -1,12 +1,9 @@
 class QuestionsController < ApplicationController
 
   before_action :find_test, only: %i[index create new]
-  before_action :find_question, only: %i[ show destroy]
+  before_action :find_question, only: %i[ show edit destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
-  #http://127.0.0.1:3000/tests/1/questions
-  def index
-  end
   #http://127.0.0.1:3000/questions/1
   def show
   end
@@ -23,6 +20,10 @@ class QuestionsController < ApplicationController
     else
       render plain: "Error,try again or check process!"
     end
+  end
+
+  def edit
+
   end
 
    def update
