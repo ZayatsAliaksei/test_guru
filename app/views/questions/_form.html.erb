@@ -1,0 +1,10 @@
+<h1><%= question_header(@question)%></h1>
+<%= form_with model: [@test, @question], local: true do |form| %>
+  <div>
+    <%= form.label :body %>
+    <%= form.text_field :body %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

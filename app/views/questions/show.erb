@@ -1,14 +1,6 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
 <h1><b>Question:</b></h1>
-<%= @question.body %>
-<p><%= link_to "Delete", question_path(@question), method: :delete, data: {confirm: "Are you sure?"} %></p>
-</body>
-</html>
+<p><%= @question.body %> <%= link_to "Delete", question_path(@question), method: :delete, data: { confirm: "Are you sure?" } %>
+  <a> </a><%= link_to 'Edit', edit_question_path(@question) %></p>
+<%= link_to 'Create new question', new_question_answer_path(@question) %><br>
+<%= link_to 'Back', test_path(@question.test) %>
+<p></p>
