@@ -1,0 +1,9 @@
+<h1><b>Answer:</b></h1>
+<p>
+  <%= @answer.body %>
+  <%= @answer.correct %>
+  <%= link_to "Delete", answer_path(@answer), method: :delete, data: { confirm: "Are you sure?" } %> |
+  <%= link_to 'Edit', edit_answer_path(@answer) %>
+</p>
+
+
