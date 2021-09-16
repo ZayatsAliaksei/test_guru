@@ -1,7 +1,7 @@
-class AnswerController < ApplicationController
+class AnswersController < ApplicationController
 
-  before_action :find_answer, only: %i[show destroy]
-  before_action :find_question, only: %i[index create]
+  before_action :find_answer, only: %i[show edit destroy]
+  before_action :find_question, only: %i[index create new]
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_answer_not_found
 
   #http://127.0.0.1:3000/questions/1/answer
@@ -13,7 +13,7 @@ class AnswerController < ApplicationController
   end
 
   def new
-    @answer = @question.answer.new
+    @answer = @question.answers.new
   end
 
   #http://127.0.0.1:3000/questions/1/answer/new
@@ -26,16 +26,26 @@ class AnswerController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   def update
+    if @answer.update(answer_params)
+      redirect_to @answer
+    else
+      render :new
+    end
   end
 
   def destroy
+    @answer.destroy!
+    redirect_to test_questions_path(@answer.test_id)
   end
 
   private
 
   def answer_params
-    params.require(:answer).permit(:body)
+    params.require(:answer).permit(:body,:correct )
   end
 
   def find_question

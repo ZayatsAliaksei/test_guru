@@ -9,7 +9,7 @@ class Answer < ApplicationRecord
   private
 
   def number_of_questions
-    errors.add( "there should be from 1 to 4 answers") if question.answers.size >= 4
+     errors.add( "there should be from 1 to 4 answers") if question.answers.size >= 4
   end
 
 end

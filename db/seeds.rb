@@ -54,8 +54,8 @@
   ])
 
 
-  users[0].tests << test[0..1]
-  users[1].tests << test
+   users[0].tests << test[0..1]
+   users[1].tests << test
 
 
 
