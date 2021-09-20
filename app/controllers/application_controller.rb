@@ -9,8 +9,6 @@ class ApplicationController < ActionController::Base
       session[:redirect_to] = request.referer
       redirect_to login_path, alert: 'Insert correct name and password'
     end
-
-    cookies[:email] = current_user&.email
   end
 
   def current_user
