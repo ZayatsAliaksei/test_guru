@@ -26,7 +26,7 @@ class TestPassage < ApplicationRecord
   end
 
   def result?
-    testtest_score >= SUCCESS_PERCENT
+    test_score >= SUCCESS_PERCENT
   end
 
   def question_number
