@@ -1,0 +1,13 @@
+<h1>Tests:</h1>
+<div>
+  <% @tests.each do |test| %>
+    Name:<b><%= test.title %></b>
+    Level:<b><%= test.level %></b>
+    Author:<b><%= test.author.name%></b>
+    <%= link_to 'Show', admin_test_path(test.id) %> |
+    <%= link_to 'Edit', edit_admin_test_path(test.id) %> |
+    <%= link_to "Delete", admin_tests_path(test.id), method: :delete, data: { confirm: "Are you sure?" } %> |
+    <br>
+  <% end %>
+</div>
+<p> <%= link_to 'Create_test', new_admin_test_path %></p>
