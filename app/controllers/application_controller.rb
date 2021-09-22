@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
   protected
 
   def after_sign_in_path_for(resource)
-    flash.notice = "Welcome, #{current_user.name}!"
-    current_user.is_a?(Admin) ? admin_tests_path : tests_path
+    flash.notice = "Welcome, #{resource.name}!"
+    resource.admin? ? admin_tests_path : tests_path
   end
 
   def configure_permitted_parameters
