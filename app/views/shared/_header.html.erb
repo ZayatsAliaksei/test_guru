@@ -17,8 +17,8 @@
 <body>
 <header>
   <h1 id="heading">Test Guru</h1>
-  <% if logged_in? %>
-    <p class="nav user">Welcome, <b><%= current_user.email %> Guru </b>| <%= link_to 'Exit', logout_path, method: :delete %></p>
+  <% if user_signed_in? %>
+    <p class="nav user">Welcome, <b><%= current_user.email %> Guru </b>| <%= link_to 'Exit', destroy_user_session_path, method: :delete %></p>
   <% end %>
 </header>
 </body>

@@ -3,12 +3,9 @@
   <% @tests.each do |test| %>
     Name:<b><%= test.title %></b>
     Level:<b><%= test.level %></b>
-    <%= link_to 'Show', test_path(test.id) %> |
-    <%= link_to 'Edit', edit_test_path(test.id) %> |
-    <%= link_to "Delete", test_path(test.id), method: :delete, data: { confirm: "Are you sure?" } %> |
+    Author:<b><%= test.author.name%></b>
     <%= button_to "Start test", start_test_path(test) %>
 
     <br>
   <% end %>
 </div>
-<p> <%= link_to 'Create_test', new_test_path %></p>
