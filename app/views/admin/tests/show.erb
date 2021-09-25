@@ -1,12 +1,12 @@
-<h1><b>Test:</b></h1>
-<p><%= @test.title %> <%= link_to "Delete", test_path(@test), method: :delete, data: { confirm: "Are you sure?" } %></p>
-<h3>Questions:</h3>
-<p><%= link_to 'Create new question', new_test_question_path(@test) %></p>
+<h1><%= t('.test', title: @test.title) %></h1>
+<%= link_to t('.delete_test'), admin_tests_path(@test), method: :delete, data: { confirm: t('admin.tests.test.sure?') } %>
+<h3><%= t('.question')%></h3>
+<p><%= link_to  t('.new_question'), new_admin_test_path(@test) %></p>
 <% @test.questions.each do |q| %>
   <b><%= q.body %></b>
-  <%= link_to 'Show', question_path(q.id) %>
-  <%= link_to 'Edit', edit_question_path(q.id) %> |
-  <%= link_to "Delete", question_path(q.id), method: :delete, data: { confirm: "Are you sure?" } %>
+  <%= link_to t('.new_question'), admin_question_path(q.id) %> |
+  <%= link_to t('admin.tests.test.edit'), edit_admin_question_path(q.id) %> |
+  <%= link_to t('.delete_test'), admin_question_path(q.id), method: :delete, data: { confirm: t('admin.tests.test.sure?') } %>
   <br>
 <% end %>
-<%= link_to 'Main page', root_path %>
+<%= link_to t('helpers.main.return'), root_path %>

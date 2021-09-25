@@ -1,7 +1,7 @@
 class Admin::QuestionsController < Admin::BaseController
 
-  before_action :find_test, only: %i[index create new]
-  before_action :find_question, only: %i[ show edit destroy]
+  before_action :find_question, only: [:show, :edit, :update, :destroy]
+  before_action :find_test, only: [:update, :edit, :create, :new]
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   #http://127.0.0.1:3000/questions/1
@@ -23,6 +23,7 @@ class Admin::QuestionsController < Admin::BaseController
   end
 
   def edit
+
   end
 
    def update
@@ -35,7 +36,7 @@ class Admin::QuestionsController < Admin::BaseController
 
   def destroy
     @question.destroy!
-    redirect_to test_questions_path(@question.test_id)
+    redirect_to admin_test_questions_path(@question.test_id)
   end
 
   private
@@ -53,7 +54,7 @@ class Admin::QuestionsController < Admin::BaseController
   end
 
   def rescue_with_question_not_found
-    render plain: 'Question was not found'
+    render plain: t('helpers.test.warning')
   end
 
 end

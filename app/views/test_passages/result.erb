@@ -1,9 +1,9 @@
-<h1><%= @test_passage.test.title %> test done!</h1>
+<h1><%= t('.completed', test: @test_passage.test.title) %></h1>
 
  <% if @test_passage.result? %>
-    You win!:<a style="color:forestgreen"><%=@test_passage.test_score %></a>
+  <%= t('.win')%>  <a style="color:forestgreen"><%=@test_passage.test_score %></a> %
   <%else %>
-    Try again later!<a style="color:darkred"><%=@test_passage.test_score %></a>
+  <%= t('.failed')%><a style="color:darkred"><%=@test_passage.test_score %></a>
   <%end %>
 
-<p><%= link_to 'Return to tests', root_path %></p>
+<p><%= link_to t('helpers.main.return'), root_path %></p>

@@ -1,0 +1,9 @@
+<h1><%=t('helpers.label.answer.body') %></h1>
+<p>
+  <%= @answer.body %>
+  <%= @answer.correct %>
+  <%= link_to t('admin.tests.test.delete'), admin_answer_path(@answer), method: :delete, data: { confirm: t('admin.tests.test.sure?') } %> |
+  <%= link_to t('admin.tests.index.edit'), edit_admin_answer_path(@answer) %>
+</p>
+
+
