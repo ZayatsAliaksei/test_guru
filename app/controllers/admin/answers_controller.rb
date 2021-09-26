@@ -1,7 +1,7 @@
 class Admin::AnswersController < Admin::BaseController
 
-  before_action :find_answer, only: %i[show edit destroy]
-  before_action :find_question, only: %i[index create new]
+  before_action :find_answer, only: [:show, :edit, :destroy]
+  before_action :find_question, only: [:index, :create, :new, :edit]
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_answer_not_found
 
   #http://127.0.0.1:3000/questions/1/answer
@@ -57,7 +57,7 @@ class Admin::AnswersController < Admin::BaseController
   end
 
   def rescue_with_answer_not_found
-    render plain: 'Answer was not found'
+    render plain: t('helpers.test.warning')
   end
 
 end

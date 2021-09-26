@@ -1,0 +1,88 @@
+ru:
+  hello: "Теcт Гуру!"
+
+  admin:
+    tests:
+      index:
+        header: 'Список тестов'
+        title: 'Название'
+        category: 'Категория'
+        level: 'Уровень'
+        qcount: 'Количество вопросов'
+        author: 'Автор теста'
+        actions: 'Действия'
+        edit: 'Редактировать'
+      test:
+        edit: 'Редактировать'
+        show: 'Открыть'
+        delete: 'Удалить'
+        sure?: 'Вы уверены?'
+        create: 'Создать Тест'
+      show:
+        test: "Тест %{title}"
+        new_question: 'Создать вопрос'
+        delete_test: 'Удалить тест'
+        question: 'Вопросы'
+      create:
+        notice: 'Тест создан!'
+      update:
+        notice: 'Тест обновлен!'
+      destroy:
+        notice: 'Тест удален!'
+
+  tests:
+    index:
+      header: 'Список тестов'
+      title: 'Название'
+      category: 'Категория'
+      level: 'Уровень'
+      qcount: 'Количество вопросов'
+      author: 'Автор'
+    test:
+      start: "Начать"
+
+  test_passages:
+    show:
+      header: "Прохождение %{test_title} Теста"
+      number: "Вопрос %{question_number} из %{questions_count}"
+      next: 'Следующий вопрос'
+    result:
+      completed: 'Тест %{test} завершен!'
+      correct_answers: 'Правильных ответов: %{score}'
+      failed: "Результат отрицательный :"
+      win: 'Результат положительный :'
+
+  helpers:
+    submit:
+      test:
+        create: "Создать тест"
+        update: "Сохранить изменения"
+    label:
+      test:
+        title: "Название"
+        level: "Уровень"
+        category_id: "Категория"
+      question:
+        body: "Вопрос"
+      answer:
+        create: 'Создать новый ответ'
+        body: "Ответ"
+        bodies: "Ответы"
+        correct: "Верный?"
+    test:
+      back: 'Назад'
+      warning: 'Не найдено!'
+    admin:
+      tests:
+        new: 'Новый тест'
+    main:
+      return: 'На главную'
+      exit: 'Выход'
+
+  shared:
+    errors:
+      header:
+        few: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+        one: "Обнаружена %{count} ошибка"
+        other: "Обнаружено %{count} ошибки"
