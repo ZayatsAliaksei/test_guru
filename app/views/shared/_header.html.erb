@@ -1,25 +1,35 @@
-<style type="text/css">
-    #heading {
-        text-align: center;
-        padding: 10px; /* Поля вокруг текста */
-        background: #39b5a2; /* Цвет фона */
-        color: #fff; /* Цвет текста */
-        width: 99%; /* Ширина слоя */
-    }
-</style>
-
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title >header</title>
-</head>
-<body>
-<header>
-  <h1 id="heading">Test Guru</h1>
-  <% if user_signed_in? %>
-    <p class="nav user"><b><%= current_user.email %> <%= t('hello') %> </b>| <%= link_to  t('helpers.main.exit'), destroy_user_session_path, method: :delete %></p>
-  <% end %>
-</header>
-</body>
-</html>
+<nav class="navbar navbar-expand-lg navbar-light bg-info">
+  <div class="container-md">
+    <div>
+      <% if current_user && current_user.admin? %>
+        <%= link_to t('helpers.main.admin_panel'), admin_tests_path, class: 'nav-link active' %>
+      <% else %>
+        <%= link_to t('hello'), root_path, class: 'nav-link active' %>
+      <% end %>
+    </div>
+    <ul class="nav justify-content-end">
+      <li class="nav-item">
+        <% if I18n.locale == I18n.default_locale %>
+          <%= link_to 'Eng', { lang: :en }, class: "nav-link active" %>
+        <% else %>
+          <%= link_to 'Ru', { lang: :ru }, class: "nav-link active" %>
+        <% end %>
+      </li>
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <a class="nav-link active"> <%= current_user.email %> </a>
+        </li>
+        <li class="nav-item">
+          <%= link_to t('helpers.main.exit'), destroy_user_session_path, method: :delete, class: "nav-link active" %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to t('helpers.main.login'), :new_user_session, class: "nav-link active" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to t('helpers.main.registr'), :new_user_registration, class: "nav-link active" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

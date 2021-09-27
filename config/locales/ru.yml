@@ -78,6 +78,10 @@ ru:
     main:
       return: 'На главную'
       exit: 'Выход'
+      error: 'Ошибка'
+      login: 'Войти'
+      registr: 'Зарегистрироваться'
+      admin_panel: 'Админка'
 
   shared:
     errors:

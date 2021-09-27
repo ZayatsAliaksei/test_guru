@@ -1,6 +1,6 @@
 class Admin::TestsController < Admin::BaseController
 
-  before_action :find_test, only: [:show, :edit, :update, :destroy, :start]
+  before_action :find_test, only: [:show, :edit, :update, :destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
   def index
@@ -15,9 +15,9 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def create
-    @test = current_user.created_tests.build(test_params)
+    @test = current_user.created_tests.new(test_params)
     if @test.save
-      redirect_to @test
+      redirect_to admin_test_path(@test), notice: t('.test.create')
     else
       render :new
     end
@@ -32,6 +32,11 @@ class Admin::TestsController < Admin::BaseController
     else
       render :new
     end
+  end
+
+  def destroy
+    @test.destroy
+    redirect_to admin_tests_path
   end
 
   private

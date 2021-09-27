@@ -1,1 +1,10 @@
-<%=render 'test' %>
+<h1 class="display-4"><%= t('tests.index.header') %></h1>
+<table class="table table-light table-striped text-center">
+  <tr>
+    <th><%= t('tests.index.title') %></th>
+    <th><%= t('tests.index.level') %></th>
+    <th><%= t('tests.index.author') %></th>
+    <th></th>
+  </tr>
+  <%= render @tests %>
+</table>

@@ -18,7 +18,7 @@ class Admin::QuestionsController < Admin::BaseController
     if new_question.save
       redirect_to root_path
     else
-      render plain: "Error,try again or check process!"
+      render t('helpers.main.error')
     end
   end
 
