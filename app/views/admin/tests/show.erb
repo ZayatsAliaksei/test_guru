@@ -1,7 +1,7 @@
 <h1><%= t('.test', title: @test.title) %></h1>
 <%= link_to t('.delete_test'), admin_tests_path(@test), method: :delete, data: { confirm: t('admin.tests.test.sure?') } %>
 <h3><%= t('.question')%></h3>
-<p><%= link_to  t('.new_question'), new_admin_test_path(@test) %></p>
+<p><%= link_to  t('.new_question'), new_admin_test_question_path(@test) %></p>
 <% @test.questions.each do |q| %>
   <b><%= q.body %></b>
   <%= link_to t('.new_question'), admin_question_path(q.id) %> |

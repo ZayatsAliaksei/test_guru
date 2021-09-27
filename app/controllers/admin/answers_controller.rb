@@ -39,7 +39,7 @@ class Admin::AnswersController < Admin::BaseController
 
   def destroy
     @answer.destroy!
-    redirect_to test_questions_path(@answer.test_id)
+    redirect_to admin_test_questions_path(@answer.test_id)
   end
 
   private

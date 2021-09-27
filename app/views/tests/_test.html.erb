@@ -1,10 +1,6 @@
-<h1><%= t('tests.index.header') %></h1>
-<div>
-  <% @tests.each do |test| %>
-    <b><%= t('tests.index.title') %></b><a><%= (test.title) %></a>
-    <b><%= t('tests.index.level') %></b><a><%= (test.level) %></a>
-    <b><%= t('tests.index.author') %></b><a><%= (test.author.name) %></a>
-    <%= button_to t('.start'), start_test_path(test) %>
-    <br>
-  <% end %>
-</div>
+<tr>
+  <td><%= test.title %></td>
+  <td><%= test.level %></td>
+  <td><%= test.author.name %></td>
+  <td><%= button_to t('.start'), start_test_path(test) %></td>
+</tr>
