@@ -1,7 +1,6 @@
-<h1><%= t('admin.tests.show.question') %></b></h1>
+<h1><%= t('helpers.label.question.body') %></b></h1>
 <p><%= @question.body %> <%= link_to t('admin.tests.test.delete'), admin_question_path(@question), method: :delete, data: { confirm: t('admin.tests.test.sure?')} %> | <%= link_to t('admin.tests.index.edit'), edit_admin_question_path(@question) %></p>
 <h3><%= t('helpers.label.answer.bodies') %></h3>
-<%= link_to t('admin.tests.show.new_question'), new_admin_question_answer_url(@question) %>
 <ol> <%= render @question.answers %> </ol>
 <%= link_to t('helpers.test.back'), admin_tests_path(@question.test) %>
 <p></p>

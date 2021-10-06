@@ -1,8 +1,8 @@
 class Admin::AnswersController < Admin::BaseController
 
-  before_action :find_answer, only: [:show, :edit, :destroy]
-  before_action :find_question, only: [:index, :create, :new, :edit]
-  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_answer_not_found
+  before_action :find_answer, only: [:show, :edit,:update, :destroy]
+  before_action :find_question, only: [:index, :create, :new]
+  # rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_answer_not_found
 
   #http://127.0.0.1:3000/questions/1/answer
   def index
@@ -20,18 +20,19 @@ class Admin::AnswersController < Admin::BaseController
   def create
     new_answer = @question.answers.new(answer_params)
     if new_answer.save
-      render plain: "Answer was create!"
+      redirect_to admin_question_path(@question)
     else
       render plain: "Error,try again or check process!"
     end
   end
 
   def edit
+
   end
 
   def update
     if @answer.update(answer_params)
-      redirect_to @answer
+      redirect_to admin_question_path(@answer.question)
     else
       render :new
     end
@@ -39,7 +40,7 @@ class Admin::AnswersController < Admin::BaseController
 
   def destroy
     @answer.destroy!
-    redirect_to admin_test_questions_path(@answer.test_id)
+    redirect_to admin_question_path(@answer.question)
   end
 
   private
