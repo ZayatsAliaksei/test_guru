@@ -1,5 +1,5 @@
 class GitHubClient
-  ACCESS_TOKEN = ENV['ACCESS_TOKEN'] #'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'
+  ACCESS_TOKEN = ENV['ACCESS_TOKEN']
 
   attr_reader :octokit_client
 
