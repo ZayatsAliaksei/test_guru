@@ -18,3 +18,19 @@ en:
       professor: 'Professor'
     main:
       return: 'Back to main page'
+
+  gists:
+    description: "A question about %{title} from TestGuru"
+    send: "Send Gist"
+    positive: "Send success Url: %{url}"
+    negative: "Send aborted,error"
+    gist: 'go to Gists'
+    q_body: 'Question'
+    url: 'URL'
+    user: 'User email'
+
+  test_passages:
+    show:
+      header: "Running %{test_title} Test"
+      number: "Question %{question_number} from %{questions_count}"
+      next: 'Next question'

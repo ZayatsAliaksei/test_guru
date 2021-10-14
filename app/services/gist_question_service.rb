@@ -21,7 +21,7 @@ class GistQuestionService
     {
       description: "A question about #{@test.title} from TestGuru",
       files: {
-        'test-guru-question.txt' => {
+        "test-guru-#{@test.title}-question.txt" => {
           content: gist_content
         }
       }
@@ -30,7 +30,7 @@ class GistQuestionService
 
   def gist_content
     content = [@question.body]
-    content += @question.answers.pluck(:text)
+    content += @question.answers.pluck(:body)
     content.join("\n")
   end
 end

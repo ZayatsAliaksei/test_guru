@@ -15,10 +15,20 @@ class TestPassagesController < ApplicationController
   end
 
   def result
+
   end
 
   def gist
+    gist = GistQuestionService.new(@test_passage.current_question)
+    result = gist.call
 
+    flash = if gist.success?
+              current_user.gists.create(question: @test_passage.current_question, url: result.html_url)
+              {notice: t('gists.positive', url: result.html_url)}
+            else
+              {notice: t('gists.negative')}
+            end
+    redirect_to @test_passage, flash
   end
 
   private

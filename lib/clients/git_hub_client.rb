@@ -1,6 +1,6 @@
 class GitHubClient
   ACCESS_TOKEN = ENV['ACCESS_TOKEN']
-
+  #params = {"description": "test","public": true, "files":{"file1.txt": {"content": "Sting file contents"}}}
   attr_reader :octokit_client
 
   def initialize
@@ -14,7 +14,7 @@ class GitHubClient
   private
 
   def setup_http_client
-    Octokit::Client.new(:access_token => ACCESS_TOKEN)
+    Octokit::Client.new(access_token: ENV["ACCESS_TOKEN"])
   end
 
 end
