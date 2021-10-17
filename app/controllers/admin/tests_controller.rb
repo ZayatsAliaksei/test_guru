@@ -28,7 +28,7 @@ class Admin::TestsController < Admin::BaseController
 
   def update
     if @test.update(question_params)
-      redirect_to @test
+      redirect_to admin_test_path(@test), notice: t('.test.create')
     else
       render :new
     end

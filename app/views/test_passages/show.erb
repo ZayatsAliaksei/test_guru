@@ -11,5 +11,5 @@
   <% end %>
   <%= form.submit t('.next') %>
 <% end %>
-
-<%= link_to t('helpers.main.return'), root_path %>
+<%= link_to t('gists.send'), gist_test_passage_path(@test_passage),method: :post %>
+<p><%= link_to t('helpers.main.return'), root_path %></p>

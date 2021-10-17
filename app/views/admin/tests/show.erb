@@ -4,9 +4,9 @@
 <p><%= link_to  t('.new_question'), new_admin_test_question_path(@test) %></p>
 <% @test.questions.each do |q| %>
   <b><%= q.body %></b>
-  <%= link_to t('.new_question'), admin_question_path(q.id) %> |
   <%= link_to t('admin.tests.test.edit'), edit_admin_question_path(q.id) %> |
-  <%= link_to t('.delete_test'), admin_question_path(q.id), method: :delete, data: { confirm: t('admin.tests.test.sure?') } %>
+  <%= link_to t('helpers.label.answer.bodies'), admin_question_answers_path(q.id) %> |
+  <%= link_to t('admin.tests.test.delete'), admin_question_path(q.id), method: :delete, data: { confirm: t('admin.tests.test.sure?') } %>
   <br>
 <% end %>
 <%= link_to t('helpers.main.return'), root_path %>
