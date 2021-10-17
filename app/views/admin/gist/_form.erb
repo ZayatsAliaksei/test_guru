@@ -1,0 +1,16 @@
+<h1>Gists:</h1>
+
+<table>
+  <tr>
+    <th><%= t('gists.q_body') %> </th>
+    <th><%= t('gists.url')%> </th>
+    <th><%= t('gists.user')%> </th>
+  </tr>
+  <% @gists.each do |gist| %>
+    <tr>
+      <td><%= gist.question_body%></td>
+      <td><a href="<%= gist.url %>" target="_blank"><%= gist.get_hash %></a></td><td>
+      <td>  <%=gist.user.email%></td>
+    </tr>
+  <% end %>
+</table>

@@ -2,6 +2,8 @@
 <div>
   <% @question.answers.each do |a| %>
     <b><%= a.body %></b>
+    <%= link_to t('admin.tests.test.edit'), edit_admin_answer_path(a.id) %> |
+    <%= link_to t('admin.tests.test.delete'), admin_answer_path(a.id), method: :delete, data: { confirm: t('admin.tests.test.sure?') } %> |
     <br>
   <% end %>
 </div>

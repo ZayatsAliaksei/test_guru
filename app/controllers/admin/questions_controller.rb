@@ -1,7 +1,7 @@
 class Admin::QuestionsController < Admin::BaseController
 
   before_action :find_question, only: [:show, :edit, :update, :destroy]
-  before_action :find_test, only: [:update, :edit, :create, :new]
+  before_action :find_test, only: [:create, :new]
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   #http://127.0.0.1:3000/questions/1
@@ -16,7 +16,7 @@ class Admin::QuestionsController < Admin::BaseController
   def create
     new_question = @test.questions.new(question_params)
     if new_question.save
-      redirect_to root_path
+      redirect_to admin_test_path(@test)
     else
       render t('helpers.main.error')
     end
@@ -28,7 +28,7 @@ class Admin::QuestionsController < Admin::BaseController
 
    def update
     if @question.update(question_params)
-      redirect_to @question
+      redirect_to admin_test_path(@question.test)
     else
       render :new
     end
