@@ -2,7 +2,7 @@ class Admin::AnswersController < Admin::BaseController
 
   before_action :find_answer, only: [:show, :edit,:update, :destroy]
   before_action :find_question, only: [:index, :create, :new]
-  # rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_answer_not_found
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_answer_not_found
 
   #http://127.0.0.1:3000/questions/1/answer
   def index

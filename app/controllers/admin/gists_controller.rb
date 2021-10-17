@@ -1,4 +1,4 @@
-class Admin::GistController < Admin::BaseController
+class Admin::GistsController < Admin::BaseController
   skip_before_action :authenticate_user!, raise: false
 
   def index

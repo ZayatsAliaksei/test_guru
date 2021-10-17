@@ -7,7 +7,7 @@ class Gist < ApplicationRecord
   end
 
   def question_body
-    self.question.body[0..24]
+    self.question.body.truncate(24)
   end
 
 end
