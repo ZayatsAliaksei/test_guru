@@ -1,9 +1,13 @@
 <h1 class="display-4"><%= t('tests.index.header') %></h1>
-<table class="table table-light table-striped text-center">
+<table class="table">
   <tr>
-    <th><%= t('tests.index.title') %></th>
-    <th><%= t('tests.index.level') %></th>
-    <th><%= t('tests.index.author') %></th>
+    <th scope="col" class="sort-by-title pointer">
+      <%= t('tests.index.title') %>
+      <%= octicon 'arrow-up', class: 'text-success' %>
+      <%= octicon 'arrow-down', class: 'text-success' %>
+    </th>
+    <th scope="col"><%= t('tests.index.level') %></th>
+    <th scope="col"><%= t('tests.index.author') %></th>
     <th></th>
   </tr>
   <%= render @tests %>
