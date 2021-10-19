@@ -1,20 +1,16 @@
 document.addEventListener("turbolinks:load", function() {
-    var control = document.querySelector('.sort-by-title')
+    var control = document.querySelector('.new_user')
     if (control) {control.addEventListener('click', sortRowsByTitle) }
 })
 
 function sortRowsByTitle() {
     var tbody = document.querySelector('tbody')
-    // NodeList
-    // https://developer.mozilla.org/ru/docs/Web/API/NodeList
     var rows = tbody.querySelectorAll('tr')
     var sortedRows = []
 
-    // select all table rows expect the first one which is the header
     for (var i = 1; i < rows.length; i++) {
         sortedRows.push(rows[i])
     }
-    // <=>
     if (this.querySelector('.octicon-arrow-up').classList.contains('hide')) {
         sortedRows.sort(compareRowsAsc)
         this.querySelector('.octicon-arrow-up').classList.remove('hide')

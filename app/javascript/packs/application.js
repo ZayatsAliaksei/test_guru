@@ -13,6 +13,7 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "../utilites/sorting"
+import "../utilites/check_input"
 
 Rails.start()
 Turbolinks.start()
