@@ -9,14 +9,18 @@ document.addEventListener('turbolinks:load', function () {
 function Validate() {
     var password = document.getElementById("user_password").value;
     var confirmPassword = document.getElementById("user_password_confirmation").value;
-    if (password != confirmPassword) {
-        this.classList.add('bg-danger');
-        return false;
+    if (confirmPassword.length == 0) {
+        this.classList.remove('bg-danger')
+        this.classList.remove('bg-success')
+        this.classList.add('bg-light')
+        return;
     }
-    if (password = confirmPassword) {
+
+    if (password != confirmPassword) {
+        this.classList.remove('bg-success')
+        this.classList.add('bg-danger')
+    } else {
         this.classList.remove('bg-danger')
         this.classList.add('bg-success')
-        return false;
     }
-    return true;
 }
