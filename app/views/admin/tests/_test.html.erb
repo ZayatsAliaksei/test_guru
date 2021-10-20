@@ -1,16 +1,26 @@
 <h1>Tests:</h1>
-<div>
+<table class="table table-bordered">
+  <tr>
+    <th scope="col" class="sort-by-title pointer">
+      <%= t('tests.index.title') %>
+      <%= octicon 'arrow-up', class: 'text-success hide' %>
+      <%= octicon 'arrow-down', class: 'text-success hide' %>
+    </th>
+    <th scope="col"><%= t('tests.index.level')%> </th>
+    <th scope="col"><%= t('tests.index.author')%> </th>
+  </tr>
   <% @tests.each do |test| %>
-    <b><%= t('tests.index.title') %> </b> <b> <%= test.title %></b>
-    <b><%= t('tests.index.level') %> </b> <b> <%= test.level %></b>
-    <b><%= t('tests.index.author') %> </b> <b> <%= test.author.name%></b>
-    <%= link_to t('.show'), admin_test_path(test.id) %> |
-    <%= link_to t('.edit'), edit_admin_test_path(test.id) %> |
-    <%= link_to t('.delete'), admin_test_path(test.id), method: :delete, data: { confirm: t('.sure?') } %> |
-    <br>
+    <tr>
+      <td><%= test.title %></td>
+      <td><%= test.level %> </td>
+      <td><%= test.author.name %> </td>
+      <td><%= link_to t('.show'), admin_test_path(test.id) %></td>
+      <td><%= link_to t('.edit'), edit_admin_test_path(test.id) %></td>
+      <td> <%= link_to t('.delete'), admin_test_path(test.id), method: :delete, data: { confirm: t('.sure?') } %></td>
+    </tr>
   <% end %>
-</div>
-<p> <%= link_to t('.create'), new_admin_test_path %></p>
-
-<%= link_to t('gists.gist'), admin_gist_index_path %>
-<p><%= link_to t('helpers.main.return'), root_path %></p>
+</table>
+<br>
+<button type="button" class="btn btn-outline-info"><%= link_to t('.create'), new_admin_test_path %></button>
+<button type="button" class="btn btn-outline-info"><%= link_to t('gists.gist'), admin_gists_path %></button>
+<button type="button" class="btn btn-outline-info"><%= link_to t('helpers.main.return'), root_path %></button>
